@@ -1,0 +1,17 @@
+{
+    "name": "hungsondo/tarot-reader",
+    "autoload": {
+        "psr-4": {
+            "Hungsondo\\TarotReader\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dhson2",
+            "email": "hungsondo1999@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0.1"
+    }
+}
