@@ -3,14 +3,26 @@
 namespace Hungsondo\TarotReader\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Hungsondo\TarotReader\TarotReader;
+use Illuminate\Support\Facades\Response;
 
 class TarotReaderController
 {
-    public function __invoke(TarotReader $reader) {
-        $quote = $reader->justDoIt();
+    public function index(TarotReader $reader) {
+        return view('tarot-reader::index');
+    }
 
-        return view('tarot-reader::index', compact('quote'));
+    public function pickCards(TarotReader $reader) {
+        $cards = $reader->pickCards();
+        return Response::json($cards);
+    }
+
+    public function getResult(Request $request, TarotReader $reader) {
+        $cards = data_get($request->all(),'cards');
+        
+        $result = $reader->getResult($cards);
+        return Response::json([
+            'result'=> $result,
+        ]);
     }
 }
