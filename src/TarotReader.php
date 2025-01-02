@@ -31,7 +31,7 @@ class TarotReader {
         $cardTwo = $this->cards[$pickedCards[1]]['name'];
         $cardThree = $this->cards[$pickedCards[2]]['name'];
 
-        $apiKey = 'AIzaSyCs9p6XNT7QWrrX5KDob_tGl7LHcPUYHls';
+        $apiKey = getenv('GEMINI_API_KEY');
 
         $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$apiKey";
         $data = [
